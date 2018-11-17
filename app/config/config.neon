@@ -1,0 +1,19 @@
+parameters:
+	dsn: "%database.driver%:host=%database.host%;dbname=%database.dbname%"
+	user: %database.username%
+	password: %database.password%
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+session:
+	expiration: 14 days
+
+services:
+	router: App\RouterFactory::createRouter
+	dbcache: NotORM_Cache_Include("%tempDir%/notorm.cache")
+	pdo: \PDO(%dsn%, %user%, %password%)
+	database: NotORM(@pdo, null, @dbcache)
+	- App\Models\UserModel
