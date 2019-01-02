@@ -55,3 +55,4 @@ This project forces `PHP 5.6` as your PHP version for Composer packages. If you 
 	}
 }
 ```
+
