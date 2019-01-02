@@ -13,7 +13,3 @@ session:
 
 services:
 	router: App\RouterFactory::createRouter
-	dbcache: NotORM_Cache_Include("%tempDir%/notorm.cache")
-	pdo: \PDO(%dsn%, %user%, %password%)
-	database: NotORM(@pdo, null, @dbcache)
-	- App\Models\UserModel
